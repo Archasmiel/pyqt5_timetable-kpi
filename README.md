@@ -1,4 +1,7 @@
-# Timetable_KPI
+## Timetable_KPI
+
+<details><summary>Открыть руководство</summary>
+<p>
 
 Как окно отобразится если открыть программу:<br>
 <img alt="alt text" src="https://github.com/Archasmiel/timetable_kpi_pyqt5/blob/main/examples/example1.png?raw=true" width="450"/>
@@ -17,3 +20,4 @@
 
 
 Если группы не найдено или пустая строка в вводе - снизу появится характерная надпись.
+</p></details>

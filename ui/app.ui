@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>800</height>
+    <height>805</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>800</width>
-    <height>800</height>
+    <height>805</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>800</width>
-    <height>800</height>
+    <height>805</height>
    </size>
   </property>
   <property name="palette">
@@ -93,14 +93,17 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>730</y>
-      <width>201</width>
-      <height>41</height>
+      <x>670</x>
+      <y>735</y>
+      <width>130</width>
+      <height>45</height>
      </rect>
     </property>
     <property name="text">
-     <string>Найти расписание</string>
+     <string>Найти</string>
+    </property>
+    <property name="shortcut">
+     <string>Return</string>
     </property>
     <property name="checkable">
      <bool>false</bool>
@@ -109,10 +112,10 @@
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>730</y>
-      <width>571</width>
-      <height>41</height>
+      <x>0</x>
+      <y>735</y>
+      <width>670</width>
+      <height>45</height>
      </rect>
     </property>
     <property name="palette">
@@ -210,8 +213,14 @@
      <font>
       <family>Times New Roman</family>
       <pointsize>14</pointsize>
-      <italic>true</italic>
+      <italic>false</italic>
      </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -220,10 +229,10 @@
    <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>781</width>
-      <height>350</height>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>360</height>
      </rect>
     </property>
     <property name="palette">
@@ -402,10 +411,10 @@
    <widget class="QTextBrowser" name="textBrowser_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>370</y>
-      <width>781</width>
-      <height>350</height>
+      <x>0</x>
+      <y>367</y>
+      <width>800</width>
+      <height>360</height>
      </rect>
     </property>
     <property name="palette">
@@ -606,6 +615,19 @@
        </colorrole>
       </disabled>
      </palette>
+    </property>
+   </widget>
+   <widget class="Line" name="line_4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>353</y>
+      <width>801</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
     </property>
    </widget>
   </widget>

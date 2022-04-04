@@ -1,7 +1,7 @@
-## KPI Timetable
+<i><font size="5"> KPI Timetable </font></i>
 
 <details><summary >
-<font size="4"> Руководство по интерфейсу </font>
+<font size="4" color=#D3ECA7> Руководство по интерфейсу </font>
 </summary>
 <p>
 
@@ -29,7 +29,7 @@
 </p></details>
 
 <details><summary>
-<font size="4"> Руководство по игнорированию выборочных предметов </font>
+<font size="4" color=#D3ECA7> Руководство по игнорированию выборочных предметов </font>
 </summary><p>
 
 Для данного действия необходимо:
@@ -42,7 +42,7 @@
 </p></details>
 
 <details><summary>
-<font size="4"> Руководство по смене цветов </font>
+<font size="4" color=#D3ECA7> Руководство по смене цветов </font>
 </summary><p>
 
 - Для данного действия необходимо:

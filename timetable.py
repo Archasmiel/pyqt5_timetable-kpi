@@ -64,6 +64,8 @@ def remove_links(html_text, colors):
             i = re.sub('class="day_backlight"', 'style="color:#000000" bgcolor=#ace2de', i)
         if 'class="current_pair"' in i:
             i = re.sub('class="current_pair"', 'style="color:#000000" bgcolor=#b0d751', i)
+        if 'class="closest_pair"' in i:
+            i = re.sub('class="closest_pair"', 'style="color:#000000" bgcolor=#ebcf81', i)
 
         text += i + '\n'
 

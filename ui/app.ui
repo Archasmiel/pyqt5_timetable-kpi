@@ -669,9 +669,6 @@
     <property name="text">
      <string>D</string>
     </property>
-    <property name="shortcut">
-     <string>Return</string>
-    </property>
     <property name="checkable">
      <bool>false</bool>
     </property>

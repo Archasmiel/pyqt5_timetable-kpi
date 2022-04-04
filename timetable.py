@@ -81,8 +81,49 @@ def get_group(link: str, group: str):
             return i[22:-1]
     return 'no_group'
 
+def get_dark_theme():
+    white = QtGui.QColor(255, 255, 255)
+    red = QtGui.QColor(255, 0, 0)
+    black = QtGui.QColor(0, 0, 0)
+    palette = QtGui.QPalette()
+    palette.setColor(QtGui.QPalette.Window, black)
+    palette.setColor(QtGui.QPalette.WindowText, white)
+    palette.setColor(QtGui.QPalette.Base, black)
+    palette.setColor(QtGui.QPalette.AlternateBase, QtGui.QColor(53, 53, 53))
+    palette.setColor(QtGui.QPalette.ToolTipBase, white)
+    palette.setColor(QtGui.QPalette.ToolTipText, white)
+    palette.setColor(QtGui.QPalette.Text, white)
+    palette.setColor(QtGui.QPalette.Button, QtGui.QColor(53, 53, 53))
+    palette.setColor(QtGui.QPalette.ButtonText, black)
+    palette.setColor(QtGui.QPalette.BrightText, red)
+    palette.setColor(QtGui.QPalette.Link, QtGui.QColor(42, 130, 218))
+    palette.setColor(QtGui.QPalette.Highlight, QtGui.QColor(42, 130, 218))
+    palette.setColor(QtGui.QPalette.HighlightedText, black)
+    return palette
 
-table_starts = [create_table_start("First"), create_table_start("Second") ]
+
+def get_light_theme():
+    white = QtGui.QColor(255, 255, 255)
+    red = QtGui.QColor(255, 0, 0)
+    black = QtGui.QColor(0, 0, 0)
+    palette = QtGui.QPalette()
+    palette.setColor(QtGui.QPalette.Window, white)
+    palette.setColor(QtGui.QPalette.WindowText, black)
+    palette.setColor(QtGui.QPalette.Base, white)
+    palette.setColor(QtGui.QPalette.AlternateBase,QtGui.QColor(53, 53, 53))
+    palette.setColor(QtGui.QPalette.ToolTipBase, white)
+    palette.setColor(QtGui.QPalette.ToolTipText, white)
+    palette.setColor(QtGui.QPalette.Text, black)
+    palette.setColor(QtGui.QPalette.Button, QtGui.QColor(53, 53, 53))
+    palette.setColor(QtGui.QPalette.ButtonText, black)
+    palette.setColor(QtGui.QPalette.BrightText, red)
+    palette.setColor(QtGui.QPalette.Link, QtGui.QColor(42, 130, 218))
+    palette.setColor(QtGui.QPalette.Highlight, QtGui.QColor(42, 130, 218))
+    palette.setColor(QtGui.QPalette.HighlightedText, black)
+    return palette
+
+
+table_starts = [create_table_start("First"), create_table_start("Second")]
 
 
 class Ui(QtWidgets.QMainWindow):
@@ -90,10 +131,18 @@ class Ui(QtWidgets.QMainWindow):
     def __init__(self):
         super(Ui, self).__init__()
         uic.loadUi(UIfile, self)
+
         self.tables = [self.textBrowser, self.textBrowser_2]
-        self.pushButton.clicked.connect(self.button_clicked)
-        self.setWindowIcon(QtGui.QIcon('ui/icon.png'))
+        self.themes = (
+            (get_light_theme, QtGui.QColor(0, 0, 0)),
+            (get_dark_theme, QtGui.QColor(255, 255, 255))
+        )
+        self.theme = 1
+
         self.setWindowTitle('КПИ расписание')
+        self.setWindowIcon(QtGui.QIcon('ui/icon.png'))
+        self.pushButton.clicked.connect(self.search_group)
+        self.pushButton_2.clicked.connect(self.change_theme)
         self.show()
 
     def show_table(self, html_text, i):
@@ -101,11 +150,22 @@ class Ui(QtWidgets.QMainWindow):
         self.tables[i].show()
         self.tables[i].raise_()
 
-    def button_clicked(self):
+    def change_theme(self):
+        # 0 - light, 1 - dark
+        self.theme = 1 if self.theme == 0 else 0
+        self.setPalette(self.themes[self.theme][0]())
+        self.textBrowser.setPalette(self.themes[self.theme][0]())
+        self.textBrowser_2.setPalette(self.themes[self.theme][0]())
+        self.lineEdit.setPalette(self.themes[self.theme][0]())
+        palette = QtGui.QPalette()
+        palette.setColor(QtGui.QPalette.WindowText, self.themes[self.theme][1])
+        self.statusBar.setPalette(palette)
+        self.pushButton_2.setText('L' if self.theme == 0 else 'D')
 
+    def search_group(self):
         if self.sender().text() == self.pushButton.text():
             group_link = get_group('http://api.rozklad.org.ua/v2/groups',
-                                   self.lineEdit.text() if self.lineEdit.text() else 'press-f')
+                                   self.lineEdit.text() if self.lineEdit.text() else 'f')
 
             if group_link == 'no_group':
                 self.statusBar.showMessage('Такой группы не найдено.')

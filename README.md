@@ -1,6 +1,8 @@
 ## KPI Timetable
 
-<details><summary>Руководство по интерфейсу</summary>
+<details><summary >
+<font size="4"> Руководство по интерфейсу </font>
+</summary>
 <p>
 
 Как окно отобразится если открыть программу:<br>
@@ -23,9 +25,12 @@
 
 
 Если группы не найдено или пустая строка в вводе - снизу появится характерная надпись.
+
 </p></details>
 
-<details><summary>Руководство по игнорированию выборочных предметов</summary><p>
+<details><summary>
+<font size="4"> Руководство по игнорированию выборочных предметов </font>
+</summary><p>
 
 Для данного действия необходимо:
    - открыть расписание в первый раз и скопировать !ТОЛЬКО НАЗВАНИЕ! нужного предмета<br><img alt="alt text" src="https://github.com/Archasmiel/timetable_kpi_pyqt5/blob/main/examples/example3.png?raw=true" width="450"/>
@@ -36,7 +41,9 @@
 
 </p></details>
 
-<details><summary>Руководство по смене цветов</summary><p>
+<details><summary>
+<font size="4"> Руководство по смене цветов </font>
+</summary><p>
 
 - Для данного действия необходимо:
    - открыть в папке программы папку data<br><img alt="alt text" src="https://github.com/Archasmiel/timetable_kpi_pyqt5/blob/main/examples/example4.png?raw=true" width="450"/>

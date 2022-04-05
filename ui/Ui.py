@@ -116,7 +116,6 @@ def read_ignore():
                 if not (i == 'yes' or i == 'no'):
                     content.append(i.split('<br>'))
 
-    print(content)
     return ignore, content
 
 

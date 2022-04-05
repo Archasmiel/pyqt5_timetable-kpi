@@ -1,6 +1,7 @@
 import sys
-from PyQt5 import QtWidgets, uic
-from Ui import Ui
+from PyQt5 import QtWidgets
+
+from ui.Ui import Ui
 
 
 def main():

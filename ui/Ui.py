@@ -107,7 +107,7 @@ def get_group(link: str, group: str):
 
 
 def read_ignore():
-    with open('data/ignore.txt', 'r', encoding='utf-8') as f:
+    with open('../data/ignore.txt', 'r', encoding='utf-8') as f:
         data = f.read().split('\n')
         ignore = True if data[0] == "yes" else False
         content = []
@@ -164,7 +164,7 @@ def get_light_theme():
 
 
 def load_colors():
-    with open('data/colors.txt', 'r') as f:
+    with open('../data/colors.txt', 'r') as f:
         data = f.read().split('\n')
     return data[0], data[1], 1 if data[2] == 'dark' else 0
 
@@ -185,7 +185,7 @@ class Ui(QtWidgets.QMainWindow):
         )
 
         self.setWindowTitle('КПИ расписание')
-        self.setWindowIcon(QtGui.QIcon('ui/icon.png'))
+        self.setWindowIcon(QtGui.QIcon('icon.png'))
         self.set_theme()
         self.pushButton.clicked.connect(self.search_group)
         self.pushButton_2.clicked.connect(self.change_theme)

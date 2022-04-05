@@ -107,7 +107,7 @@ def get_group(link: str, group: str):
 
 
 def read_ignore():
-    with open('../data/ignore.txt', 'r', encoding='utf-8') as f:
+    with open(r'data/ignore.txt', 'r', encoding='utf-8') as f:
         data = f.read().split('\n')
         ignore = True if data[0] == "yes" else False
         content = []
@@ -164,7 +164,7 @@ def get_light_theme():
 
 
 def load_colors():
-    with open('../data/colors.txt', 'r') as f:
+    with open(r'data/colors.txt', 'r') as f:
         data = f.read().split('\n')
     return data[0], data[1], 1 if data[2] == 'dark' else 0
 

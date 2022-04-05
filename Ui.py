@@ -11,6 +11,11 @@ def create_table_start(table_id):
            f'cellpadding="10" rules="all" align="center" border="1">'
 
 
+def custom_table_start(table_id):
+    return f'<table id="ctl00_MainContent_{table_id}ScheduleTable" class="table table-bordered table-hover" ' \
+           f'cellpadding="10" cellspacing="0" rules="all" align="center" border="1" bordercolor="gray">'
+
+
 def remove_links(html_text, colors):
     text = ''
     ignore, ignored = read_ignore()
@@ -71,9 +76,11 @@ def remove_links(html_text, colors):
     return text
 
 
-def process_table(text, i):
+def process_table(text, index):
+    orig_starts = [create_table_start("First"), create_table_start("Second")]
+    cust_starts = [custom_table_start("First"), custom_table_start("Second")]
     res = ''
-    table_start, table_end, table_bool = table_starts[i], '</table>', False
+    table_start, table_end, table_bool = orig_starts[index], '</table>', False
 
     for i in text.split('\n'):
         if table_bool:
@@ -81,11 +88,13 @@ def process_table(text, i):
 
         if (table_start in i) and (not table_bool):
             table_bool = True
-            res += f'{i}\n'
+            res += f'{cust_starts[index]}\n'
 
         if (table_end in i) and table_bool:
             table_bool = False
+            res += f'{table_end}\n'
             break
+
     return res
 
 
@@ -160,9 +169,6 @@ def load_colors():
     return data[0], data[1], 1 if data[2] == 'dark' else 0
 
 
-table_starts = [create_table_start("First"), create_table_start("Second")]
-
-
 class Ui(QtWidgets.QMainWindow):
 
     def __init__(self):
@@ -172,6 +178,7 @@ class Ui(QtWidgets.QMainWindow):
         self.color1, self.color2, self.theme = load_colors()
 
         self.tables = [self.textBrowser, self.textBrowser_2]
+
         self.themes = (
             (get_light_theme, QtGui.QColor(0, 0, 0)),
             (get_dark_theme, QtGui.QColor(255, 255, 255))
